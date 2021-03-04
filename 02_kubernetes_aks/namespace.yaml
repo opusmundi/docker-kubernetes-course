@@ -1,0 +1,4 @@
+apiVersioni: v1
+kind: Namespace
+metadata:
+  name: opusmundi
