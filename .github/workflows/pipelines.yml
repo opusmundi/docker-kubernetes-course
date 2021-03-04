@@ -40,3 +40,17 @@ jobs:
         resource-group: Refinitiv
         # AKS Cluster Name
         cluster-name: opusmundi
+        
+    - name: Deploy to Kubernetes cluster
+      uses: Azure/k8s-deploy@v1.3
+      with:
+        # Choose the target Kubernetes namespace. If the namespace is not provided, the commands will run in the default namespace.
+        namespace: opusmundi
+        # Path to the manifest files which will be used for deployment.
+        manifests: |
+          02_kubernetes_aks/namespace.yaml
+          02_kubernetes_aks/app-deploy.yaml
+          02_kubernetes_aks/configmap.yaml
+          02_kubernetes_aks/db-deploy.yaml
+          02_kubernetes_aks/disk-pvc.yaml
+          
